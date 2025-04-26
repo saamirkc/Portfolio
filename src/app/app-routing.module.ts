@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ThreejsComponent } from './threejs/threejs.component';
 
+
 const routes: Routes = [
 
 
@@ -14,11 +15,13 @@ const routes: Routes = [
     component: ThreejsComponent,
     pathMatch: 'full'
   },
+
   {
     path: '',
     component: HomeComponent,
     pathMatch: 'full'
   },
+
   {
     path: 'about',
     component: AboutComponent,

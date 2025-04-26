@@ -15,6 +15,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButton} from '@angular/material/button';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import {MatButton} from '@angular/material/button';
     HomeComponent,
     ContactComponent,
     AboutComponent,
-    ProjectsComponent
+    ProjectsComponent,
+
   ],
   imports: [
     BrowserModule,

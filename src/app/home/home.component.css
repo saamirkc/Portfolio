@@ -8,9 +8,19 @@
   color: #C02BE2FF ;
   font-size: 1rem;
   margin-right: 40px;
-  padding-left: 100px;
+  padding-left: 20px;
   z-index: 10;
   position: relative;
+
+}
+.custom-navbar .navbar-toggler{
+  position: relative;
+  z-index: 999;
+}
+
+.custom-navbar .navbar-toggler-icon {
+  background-color: #C02BE2;
+
 
 }
 
@@ -22,3 +32,17 @@
   color: #00ffd1;
   border-radius: 5px;
 }
+
+/*@media (max-width: 576px) {*/
+/*  .custom-navbar .nav-link {*/
+/*    color: #C02BE2FF ;*/
+/*    font-size: 1rem;*/
+/*    margin-top:0px;*/
+/*    z-index: 10;*/
+/*    position: relative;*/
+/*  }*/
+/*  .navbar-nav {*/
+/*    flex-direction: column; !* Stack links vertically *!*/
+/*    align-items: center;    !* Center them *!*/
+/*  }*/
+/*}*/

@@ -33,7 +33,7 @@ export class ThreejsComponent {
     });
 
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bgCanvas') as HTMLCanvasElement,alpha:true });
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('threeCanvas') as HTMLCanvasElement,alpha:true });
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.update();
