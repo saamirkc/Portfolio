@@ -1,0 +1,24 @@
+.custom-navbar {
+  background-color: #101010;
+
+
+}
+
+.custom-navbar .nav-link {
+  color: #C02BE2FF ;
+  font-size: 1rem;
+  margin-right: 40px;
+  padding-left: 100px;
+  z-index: 10;
+  position: relative;
+
+}
+
+.custom-navbar .nav-link:hover {
+  color: #00ffd1 ; /* glowing teal hover effect */
+}
+
+.custom-navbar .nav-link.active {
+  color: #00ffd1;
+  border-radius: 5px;
+}

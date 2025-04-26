@@ -1,0 +1,58 @@
+
+.example-card {
+  color: #555;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 50px;
+  display: flex;
+  margin-left: 250px;
+  align-items: center;
+  max-width: 800px;
+  margin-bottom: 50px;
+  border-color: #00ffd1;
+  border-width: 1px;
+  border-style: groove;
+  box-shadow: 0 4px 20px rgba(104, 51, 153, 0.78);
+
+
+
+}
+.form-field{
+ margin-top: 20px;
+
+}
+
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+
+
+button {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  background-color: #683399C6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 20px rgba(104, 51, 153, 0.78);
+}
+
+button:hover {
+  background-color: #00e6b3;
+}
+.success-message{
+  color: #00ffd1;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .example-card {
+    width: 100%;  /* Full width on mobile */
+    margin-left: 0;  /* No margin */
+  }
+}

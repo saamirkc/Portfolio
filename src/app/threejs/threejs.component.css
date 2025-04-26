@@ -1,0 +1,72 @@
+
+
+.center-text h1:first-child {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #00ffd1; /* glowing teal */
+  text-shadow: 0 0 15px #00ffd1;
+  margin-top:100px;
+  margin-left: 80px  ;
+  z-index: 10;
+  position: relative;
+  pointer-events: none;
+
+}
+.center-text h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: rgb(192, 43, 226);
+  text-shadow: 0 0 15px #C02BE2FF;
+  margin-top: 10px;
+  margin-left: 150px  ;
+  z-index: 10;
+  position: relative;
+  pointer-events: none;
+  /*animation: fadeIn 1s ease-in-out;*/
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.center-text h2.fade {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+
+
+
+#bgCanvas {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 300px;
+  height: 300px;
+  z-index: 0;
+  pointer-events: auto;
+  background:transparent;
+}
+/* Responsive fallback */
+@media screen and (max-width: 768px) {
+  .scene-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .center-text h1 {
+    font-size: 2rem;
+  }
+
+  .center-text h2 {
+    font-size: 1.5rem;
+  }
+}
+
+

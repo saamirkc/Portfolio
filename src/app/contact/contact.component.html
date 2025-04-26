@@ -1,0 +1,52 @@
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="contact-container">
+  <h2>Contact Me</h2>
+</div>
+
+  <mat-card class="example-card" appearance="outlined">
+    <!-- Contact Form -->
+      <form
+        action="https://formspree.io/f/xkgrgrkz"
+        method="POST"
+       (submit)="submitted = true"
+      >
+      <!-- Name Input -->
+      <div class="form-field">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Enter your name" name="name"  />
+        </mat-form-field>
+      </div>
+
+      <!-- Email Input -->
+      <div class="form-field">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Enter your email"  name="email"  />
+        </mat-form-field>
+      </div>
+
+      <!-- Message Input -->
+      <div class="form-field">
+        <mat-form-field appearance="outline">
+          <mat-label>Message</mat-label>
+          <textarea matInput placeholder="Enter your message"  name="message" ></textarea>
+        </mat-form-field>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-field">
+        <button type="submit">
+          <i class="fas fa-paper-plane">Submit</i>
+        </button>
+
+      </div>
+
+    </form>
+  </mat-card>
+<div *ngIf="submitted" class="success-message">
+  ✅ Message sent successfully!
+</div>

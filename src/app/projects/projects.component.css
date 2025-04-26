@@ -1,0 +1,55 @@
+
+.example-card {
+  color: #555;
+  font-size: 1.1rem;
+  font-weight: bold;
+margin-top: 50px;
+  max-width: 1000px;
+  margin-bottom: 30px;
+  border-color: #00ffd1;
+  border-width: 1px;
+  border-style: groove;
+  box-shadow: 0 4px 20px rgba(104, 51, 153, 0.78);
+  transition: transform 0.3s ease;
+  /*transform-style: preserve-3d;*/
+
+
+}
+
+.example-card:hover {
+  transform: translateZ(10px) scale(1.03);
+}
+
+
+
+.tech-badge {
+
+  gap: 10px;
+  margin-top: 10px;
+}
+
+
+
+.link a{
+  display: flex;
+  justify-content: center;
+  color: #683399C6;
+  margin-bottom: 5px;
+
+
+}
+.link a:hover{
+  color: #00ffd1;
+  transform: scale(1.1);
+}
+h2{
+  color: #2a2a2a;
+  margin-top: 5px;
+}
+
+
+/*.link a animateTransform{*/
+/*  transition: transform 0.3s ease;*/
+/*}*/
+
+
