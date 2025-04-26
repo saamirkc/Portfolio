@@ -1,59 +1,75 @@
-# Portfolio
+# Portfolio ![Angular](https://img.shields.io/badge/Built%20with-Angular-DD0031?logo=angular&logoColor=white) ![Three.js](https://img.shields.io/badge/Three.js-000000?logo=three.js&logoColor=white) ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+This is a **personal portfolio website** built using **Angular**, **Three.js**, and other modern web technologies.  
+It showcases smooth scrolling, dynamic animations, and a responsive design to highlight skills, projects, and personal achievements.
 
-## Development server
+> ⚡ **Note**: If you use significant portions of this project, **please give proper credit**.
 
-To start a local development server, run:
+---
+
+## Live Demo
+
+[🔗 View Live Site](https://portfolio-w1ck.onrender.com/) 
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bas
+
+git clone https://github.com/saamirkc/Portfolio.git
+
+
+```
+Navigate into the project folder:
+
+
+```bas
+cd Portfolio
+
+```
+Install the required dependencies:
 
 ```bash
+npm install
+
+```
+Run the development server:
+
+```
 ng serve
+
+
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+Open your browser and navigate to:
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
+http://localhost:4200/
 ```
+The application will automatically reload if you make changes to any source files.
 
-## Building
+Built With
+Angular — Frontend Framework
 
-To build the project run:
+Three.js — 3D Graphics Library
 
-```bash
-ng build
-```
+TypeScript — Programming Language
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Bootstrap — CSS Framework 
 
-## Running unit tests
+CSS — Styling
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-```bash
-ng test
-```
+## Contribution and Usage
 
-## Running end-to-end tests
+Feel free to use, modify, and build upon this project for your personal portfolio or learning purposes!
 
-For end-to-end (e2e) testing, run:
+✅ If you decide to use a significant portion of the code, please give credit to the original creator.
 
-```bash
-ng e2e
-```
+Pull requests and suggestions for improvements are also welcome!
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## License
+This project is licensed under the MIT License.
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+You are free to use this project for personal and commercial purposes with proper attribution.
