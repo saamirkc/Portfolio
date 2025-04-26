@@ -1,4 +1,5 @@
 import {Component, signal} from '@angular/core';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -8,5 +9,11 @@ import {Component, signal} from '@angular/core';
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
-  submitted = false;
+  constructor(private route:Router) { }
+
+
+  onSubmit() {
+    alert("Thank you for contacting me");
+    this.route.navigate(['/'])
+  }
 }
