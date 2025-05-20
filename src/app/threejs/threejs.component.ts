@@ -11,7 +11,10 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
   styleUrl: './threejs.component.css'
 })
 export class ThreejsComponent {
+
+
   ngOnInit() {
+
 
     const scene = new THREE.Scene();
     const ambientLight = new THREE.AmbientLight(0xffffff, 1); // white ambient light
@@ -45,7 +48,7 @@ export class ThreejsComponent {
 
     const animate = () => {
       requestAnimationFrame(animate);
-      scene.rotation.y += 0.003;
+      scene.rotation.y += 0.001;
 
       renderer.render(scene, camera);
     };
