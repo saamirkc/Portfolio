@@ -1,6 +1,6 @@
 
 .example-card {
-  color: #ffffff;
+  color: azure;
   font-size: 1.1rem;
   font-weight: bold;
 margin-top: 50px;
@@ -43,7 +43,7 @@ margin-top: 50px;
   transform: scale(1.1);
 }
 h2{
-  color: #ffffff;
+  color: azure;
   margin-top: 5px;
 }
 

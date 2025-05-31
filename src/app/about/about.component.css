@@ -11,7 +11,7 @@
   margin-top: 50px;
   font-size: 2.5rem;
   font-weight: bold;
-  color: #ffffff;
+  color: azure;
   margin-bottom: 20px;
 }
 
@@ -69,13 +69,14 @@
   padding: 40px;
   margin-top: 100px;
   margin-bottom: 100px;
+  color: azure;
 
 }
 .resume p{
   margin-top: 40px;
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #555;
+  color: #ffffff;
 
 }
 .resume a{
@@ -99,11 +100,12 @@
 
 }
 .tech-stack h1{
-  color: #2a2a2a;
+  color: azure;
 
 }
 .tech-stack h3{
   margin-top: 40px;
+  color:white;
 }
 
 
