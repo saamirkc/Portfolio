@@ -19,7 +19,7 @@
 .about-text p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #ffffff;
+  color: azure;
   margin-bottom: 20px;
 }
 
@@ -76,7 +76,7 @@
   margin-top: 40px;
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #ffffff;
+  color: azure;
 
 }
 .resume a{
@@ -105,7 +105,7 @@
 }
 .tech-stack h3{
   margin-top: 40px;
-  color:white;
+  color:azure;
 }
 
 
