@@ -40,6 +40,7 @@ export class ThreejsComponent {
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.update();
+    controls.enableZoom=false;
     // renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setSize(600, 600);
     renderer.setClearColor(0x101010,0);
@@ -48,6 +49,9 @@ export class ThreejsComponent {
 
     const animate = () => {
       requestAnimationFrame(animate);
+      // scene.rotation.x = Math.PI / 5;
+      // scene.rotation.y = Math.PI / 15;
+      // scene.rotation.z = Math.PI / 15;
       scene.rotation.y += 0.001;
 
       renderer.render(scene, camera);

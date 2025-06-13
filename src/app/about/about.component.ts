@@ -31,6 +31,7 @@ export class AboutComponent {
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.update();
+    controls.enableZoom=false;
     // renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setSize(600, 600);
 
