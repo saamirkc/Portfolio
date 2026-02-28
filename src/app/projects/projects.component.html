@@ -1,61 +1,37 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<section class="projects-section">
+  <div class="section-header">
+    <span class="section-label"><span class="label-num">04.</span> Projects</span>
+    <h2 class="section-title">Things I've Built</h2>
+    <div class="title-line"></div>
+  </div>
 
-<!--<div class="projects-container">-->
-<!--  <h2>My Projects</h2>-->
-<!--  <div class="project-card" *ngFor="let project of projects">-->
-<!--    <h3>{{ project.title }}</h3>-->
-<!--    <p>{{ project.description }}</p>-->
-<!--    <div class="tech-stack">-->
-<!--      <span *ngFor="let tech of project.technologies" class="tech">-->
-<!--        <i [ngClass]="{-->
-<!--          'fab fa-angular': tech === 'Angular',-->
-<!--          'fab fa-java': tech === 'Spring Boot',-->
-<!--          'fas fa-database': tech === 'MySQL',-->
-<!--          'fas fa-key': tech === 'JWT',-->
-<!--          'fas fa-credit-card': tech === 'Khalti'-->
-<!--        }"></i> {{ tech }}-->
-<!--      </span>-->
-<!--    </div>-->
-<!--    <div class="links">-->
-<!--      <a *ngIf="project.github" [href]="project.github" target="_blank"><i class="fab fa-github"></i> GitHub</a>-->
-<!--      <a *ngIf="project.live" [href]="project.live" target="_blank"><i class="fas fa-globe"></i> Live Demo</a>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-<div class="container">
-  <h2 class="container text-center ">My Projects</h2>
-<div *ngFor="let project of projects">
-
-  <mat-card class="example-card" appearance="outlined">
-    <mat-card-header>
-      <mat-card-title-group>
-        <mat-card-title>{{ project.title }}</mat-card-title>
-        <img mat-card-sm-image src="{{project.image}}" >
-
-      </mat-card-title-group>
-
-
-
-    </mat-card-header>
-    <mat-card-content>{{project.description}}</mat-card-content>
-<span *ngFor="let tech of project.technologies">
-
-  <img
-    [src]="getBadgeUrl(tech)"
-   [alt]="tech"
-    class="tech-badge"
-  />
-
-</span>
-    <div class="link">
-      <a [href]="project.github" target="_blank"><i class="fab fa-github "> GitHub</i></a>
+  <!-- Featured Projects -->
+  <div class="featured-projects">
+    <div class="featured-project" *ngFor="let project of projects; let i = index; let even = even"
+         [class.reverse]="!even">
+      <div class="project-image">
+        <div class="image-overlay"></div>
+        <img [src]="project.image" [alt]="project.title">
+      </div>
+      <div class="project-info" [class.align-right]="even" [class.align-left]="!even">
+        <span class="project-overline">Featured Project</span>
+        <h3 class="project-title">{{project.title}}</h3>
+        <div class="project-desc">
+          <p>{{project.description}}</p>
+        </div>
+        <div class="project-tech">
+          <span *ngFor="let tech of project.technologies">{{tech}}</span>
+        </div>
+        <div class="project-links">
+          <a [href]="project.github" target="_blank" class="project-link" title="View Source">
+            <i class="fab fa-github"></i>
+          </a>
+          <a *ngIf="project.live" [href]="project.live" target="_blank" class="project-link" title="Live Demo">
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
     </div>
-  </mat-card>
-
-</div>
-
-</div>
-
-
+  </div>
+</section>
 

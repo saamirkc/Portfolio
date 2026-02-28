@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-projects',
@@ -9,64 +9,37 @@ import {Component} from '@angular/core';
 export class ProjectsComponent {
   projects = [
     {
-      title: 'Quiz Web App',
-      description: 'A full-stack quiz application with role-based access (Admin/User), built with Angular, Spring Boot, and JWT Authentication.',
-      technologies: ['Angular', 'Spring Boot', 'MySQL', 'JWT'],
+      title: 'Quiz Web Application',
+      description: 'A full-stack exam portal featuring role-based access control (Admin/User), JWT authentication, timed quizzes, auto-grading, and a responsive Angular dashboard. Built with production-grade Spring Boot APIs and MySQL persistence.',
+      technologies: ['Angular', 'Spring Boot', 'MySQL', 'JWT', 'Spring Security'],
       github: 'https://github.com/saamirkc/Examportalbackend',
-      image: '/exam.jpg'
-
+      image: '/exam.jpg',
+      live: ''
     },
     {
       title: 'Online Book Store',
-      description: 'An e-commerce platform for books featuring Spring Security, payment integration (Khalti), and responsive Angular frontend.',
-      technologies: ['Angular', 'Spring Boot', 'PostgreSQL', 'Khalti'],
+      description: 'An e-commerce platform for books with Spring Security authentication, Khalti payment gateway integration, shopping cart management, and a responsive Angular storefront. Features order tracking and inventory management.',
+      technologies: ['Angular', 'Spring Boot', 'PostgreSQL', 'Khalti', 'REST API'],
       github: 'https://github.com/saamirkc/backendbookstore',
-      image: '/book.png'
-
+      image: '/book.png',
+      live: ''
     },
     {
-      title: 'Pneumonia Detection and Localization In Chest X-Ray Images',
-      description: 'An end-to-end machine learning project for pneumonia detection and localization in chest X-ray images.',
-      technologies: ['Angular', 'FastApi', 'Machine Learning', 'Deep Learning'],
+      title: 'Pneumonia Detection System',
+      description: 'An end-to-end ML pipeline for pneumonia detection and localization in chest X-ray images. Features a FastAPI backend serving a deep learning model with an Angular visualization frontend for medical image analysis.',
+      technologies: ['FastAPI', 'Deep Learning', 'Angular', 'Python', 'TensorFlow'],
       github: 'https://github.com/saamirkc/BackendForML',
-      image: '/pneumonia.png'
-
+      image: '/pneumonia.png',
+      live: ''
     },
     {
-      title: 'Book Library',
-      description: 'A book library management system  built with Java , Spring Boot ,Angular providing users the ability to borrow, return, and manage books.',
-      technologies: ['Java', 'Spring Boot', 'MySQL'],
+      title: 'Book Library Management',
+      description: 'A comprehensive library management system enabling users to borrow, return, and manage books. Features user authentication, book catalog search, borrowing history, and admin dashboard built with Spring Boot microservices.',
+      technologies: ['Java', 'Spring Boot', 'MySQL', 'Angular', 'Hibernate'],
       github: 'https://github.com/saamirkc/Book-backendlib',
-      image: '/bookui.png'
+      image: '/bookui.png',
+      live: ''
     }
-
   ];
-
-  getBadgeUrl(tech: string): string {
-    switch (tech) {
-      case 'Java':
-        return 'https://img.shields.io/badge/Java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white';
-      case 'Spring Boot':
-        return 'https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white';
-      case 'Angular':
-        return 'https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white';
-      case 'MySQL':
-        return 'https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white';
-      case 'JWT':
-        return 'https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white';
-      case 'Khalti':
-        return 'https://img.shields.io/badge/Khalti-5C2D91?style=for-the-badge&logo=khalti&logoColor=white';
-      case 'FastApi':
-        return 'https://img.shields.io/badge/FastApi-005571?style=for-the-badge&logo=fastapi&logoColor=white';
-      case 'Machine Learning':
-        return 'https://img.shields.io/badge/Machine%20Learning-FF6347?style=for-the-badge&logo=machine%20learning&logoColor=white';
-      case 'Deep Learning':
-        return 'https://img.shields.io/badge/Deep%20Learning-D41B71?style=for-the-badge&logo=deep%20learning&logoColor=white';
-      case 'PostgreSQL':
-        return 'https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white';
-      default:
-        return 'https://img.shields.io/badge/Tech-gray?style=for-the-badge';
-    }
-  }
-
 }
+

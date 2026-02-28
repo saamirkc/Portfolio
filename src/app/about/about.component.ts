@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 @Component({
   selector: 'app-about',
@@ -9,43 +7,50 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
   styleUrl: './about.component.css'
 })
 export class AboutComponent {
+  highlights = [
+    { icon: 'fa-server', title: 'Backend-First', desc: 'Spring Boot, REST APIs, Microservices' },
+    { icon: 'fa-diagram-project', title: 'Distributed Systems', desc: 'Kafka, Event-Driven Architecture' },
+    { icon: 'fa-shield-halved', title: 'Financial Systems', desc: 'Secure, compliant fintech solutions' },
+    { icon: 'fa-cloud', title: 'Cloud-Native', desc: 'Docker, AWS, CI/CD Pipelines' }
+  ];
 
-  ngOnInit() {
+  terminalLines = [
+    { type: 'command', text: 'cat about.json' },
+    { type: 'output', text: '{', class: 'json-bracket' },
+    { type: 'output', text: '  "name": "Samir K.C.",', class: 'json-string' },
+    { type: 'output', text: '  "role": "Java Backend Developer",', class: 'json-string' },
+    { type: 'output', text: '  "location": "Nepal",', class: 'json-string' },
+    { type: 'output', text: '  "languages": ["Java", "Python", "TypeScript"],', class: 'json-array' },
+    { type: 'output', text: '  "frameworks": ["Spring Boot", "Angular"],', class: 'json-array' },
+    { type: 'output', text: '  "databases": ["PostgreSQL", "MySQL", "MongoDB"],', class: 'json-array' },
+    { type: 'output', text: '  "interests": ["Distributed Systems", "Fintech"],', class: 'json-array' },
+    { type: 'output', text: '  "available": true', class: 'json-bool' },
+    { type: 'output', text: '}', class: 'json-bracket' },
+    { type: 'command', text: 'echo "Open to opportunities!"' },
+    { type: 'output', text: 'Open to opportunities!', class: 'output-success' }
+  ];
 
-  //   scene
-    const scene = new THREE.Scene();
-    const samir=new THREE.TextureLoader().load('sam.jpeg');
-    const sam =new THREE.Mesh(new THREE.BoxGeometry(3,3,3),new THREE.MeshBasicMaterial({map:samir}));
-    scene.scale.set(0.9, 0.9, 0.9);
-    scene.add(sam);
-
-
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1); // white ambient light
-    scene.add(ambientLight);
-
-    const camera = new THREE.PerspectiveCamera(75, 600/600, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bgCanvas') as HTMLCanvasElement,alpha:true });
-
-
-
-
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.update();
-    controls.enableZoom=false;
-    // renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setSize(600, 600);
-
-    renderer.setClearColor(0x101010,0);
-    camera.position.z = 5;
-
-
-    function animate() {
-      requestAnimationFrame(animate);
-
-      sam.rotation.y += 0.002;
-      renderer.render(scene, camera);
-
+  techStack = [
+    {
+      name: 'Backend',
+      icon: 'fa-code',
+      items: ['Java', 'Spring Boot', 'Spring Security', 'REST APIs', 'Kafka', 'Microservices']
+    },
+    {
+      name: 'Frontend',
+      icon: 'fa-laptop-code',
+      items: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'Bootstrap']
+    },
+    {
+      name: 'Database',
+      icon: 'fa-database',
+      items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Hibernate']
+    },
+    {
+      name: 'DevOps & Tools',
+      icon: 'fa-gear',
+      items: ['Git', 'Docker', 'Linux', 'AWS', 'Maven', 'Postman']
     }
-    animate();
-  }
+  ];
 }
+

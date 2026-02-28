@@ -1,49 +1,98 @@
+<section class="contact-section">
+  <div class="section-header">
+    <span class="section-label"><span class="label-num">05.</span> Contact</span>
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="title-line"></div>
+    <p class="section-subtitle">
+      I'm currently open to new opportunities. Whether you have a question, a project idea,
+      or just want to say hi — my inbox is always open.
+    </p>
+  </div>
 
+  <div class="contact-grid">
+    <!-- Left: Info Cards -->
+    <div class="contact-info">
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div>
+          <h4>Email</h4>
+          <a href="mailto:samirkc@example.com">samirkc&#64;example.com</a>
+        </div>
+      </div>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div>
+          <h4>Location</h4>
+          <span>Nepal</span>
+        </div>
+      </div>
 
-<div class="contact-container">
-  <h2>Contact Me</h2>
-</div>
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="fab fa-github"></i>
+        </div>
+        <div>
+          <h4>GitHub</h4>
+          <a href="https://github.com/saamirkc" target="_blank">github.com/saamirkc</a>
+        </div>
+      </div>
 
-  <mat-card class="example-card" appearance="outlined">
-    <!-- Contact Form -->
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="fab fa-linkedin-in"></i>
+        </div>
+        <div>
+          <h4>LinkedIn</h4>
+          <a href="https://linkedin.com/in/samir-kc" target="_blank">linkedin.com/in/samir-kc</a>
+        </div>
+      </div>
+
+      <div class="availability-badge">
+        <span class="pulse-dot"></span>
+        Available for opportunities
+      </div>
+    </div>
+
+    <!-- Right: Contact Form -->
+    <div class="contact-form-wrapper">
       <form
         action="https://formspree.io/f/xkgrgrkz"
         method="POST"
         (submit)="onSubmit()"
+        class="contact-form"
       >
-      <!-- Name Input -->
-      <div class="form-field">
-        <mat-form-field appearance="outline">
-          <mat-label>Name</mat-label>
-          <input matInput placeholder="Enter your name" name="name"  />
-        </mat-form-field>
-      </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline">
+            <mat-label>Your Name</mat-label>
+            <input matInput placeholder="John Doe" name="name" required />
+          </mat-form-field>
+        </div>
 
-      <!-- Email Input -->
-      <div class="form-field">
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input matInput placeholder="Enter your email"  name="email"  />
-        </mat-form-field>
-      </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline">
+            <mat-label>Your Email</mat-label>
+            <input matInput placeholder="john@example.com" name="email" required />
+          </mat-form-field>
+        </div>
 
-      <!-- Message Input -->
-      <div class="form-field">
-        <mat-form-field appearance="outline">
-          <mat-label>Message</mat-label>
-          <textarea matInput placeholder="Enter your message"  name="message" ></textarea>
-        </mat-form-field>
-      </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline">
+            <mat-label>Your Message</mat-label>
+            <textarea matInput placeholder="Tell me about your project..." name="message" rows="5" required></textarea>
+          </mat-form-field>
+        </div>
 
-      <!-- Submit Button -->
-      <div class="form-field">
-        <button type="submit">
-          <i class="fas fa-paper-plane">Submit</i>
+        <button type="submit" class="submit-btn">
+          <span>Send Message</span>
+          <i class="fas fa-paper-plane"></i>
         </button>
+      </form>
+    </div>
+  </div>
+</section>
 
-      </div>
-
-    </form>
-  </mat-card>

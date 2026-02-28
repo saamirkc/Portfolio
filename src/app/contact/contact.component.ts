@@ -1,6 +1,4 @@
-import {Component, signal} from '@angular/core';
-import {Router} from '@angular/router';
-
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
@@ -9,11 +7,9 @@ import {Router} from '@angular/router';
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
-  constructor(private route:Router) { }
-
-
   onSubmit() {
-    alert("Thank you for contacting me");
-    this.route.navigate(['/'])
+    // The form submits to Formspree via native form action
+    // This provides UX feedback
   }
 }
+

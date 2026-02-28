@@ -1,79 +1,100 @@
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-<div class="about-container">
-  <div class="about-text">
-    <h2>About Me</h2>
-    <p>
-      Hi, I'm Samir, a passionate Full Stack Software Engineer with expertise in building dynamic and scalable web applications. I specialize in Java, Spring Boot, Angular, and databases such as MySQL and PostgreSQL. My journey into tech has been both challenging and rewarding, and I am constantly learning to keep up with the evolving tech landscape.
-    </p>
-    <p>
-      I enjoy solving complex problems and bringing ideas to life through code. When I'm not coding, I love exploring new technologies, working on personal projects, and sharing knowledge with others.
-    </p>
+<section class="about-section">
+  <div class="section-header">
+    <span class="section-label"><span class="label-num">02.</span> About Me</span>
+    <h2 class="section-title">Who I Am</h2>
+    <div class="title-line"></div>
   </div>
 
+  <div class="about-grid">
+    <!-- Left: Description -->
+    <div class="about-text">
+      <p class="about-intro">
+        I'm a <span class="accent">Java Backend Developer</span> passionate about building robust,
+        scalable systems that handle real-world complexity. I thrive on designing
+        <span class="accent">production-grade APIs</span> and architecting
+        <span class="accent">distributed workflows</span> for mission-critical applications.
+      </p>
+      <p>
+        My professional experience spans the fintech and e-commerce domains — from implementing
+        real-time transaction processing with <span class="accent">Apache Kafka</span>, to
+        integrating payment gateways and building microservice-based architectures with
+        <span class="accent">Spring Boot</span>.
+      </p>
+      <p>
+        I believe in clean architecture, test-driven development, and systems that
+        scale gracefully under pressure. When I'm not coding, I'm exploring distributed
+        systems patterns and cloud-native technologies.
+      </p>
 
-  <div class="canvas-wrapper">
-    <canvas id="bgCanvas"></canvas>
+      <div class="about-highlights">
+        <div class="highlight-item" *ngFor="let item of highlights">
+          <i class="fas" [ngClass]="item.icon"></i>
+          <div>
+            <strong>{{item.title}}</strong>
+            <span>{{item.desc}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Interactive Terminal -->
+    <div class="about-visual">
+      <div class="terminal">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="terminal-title">samir&#64;dev ~ </span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line" *ngFor="let line of terminalLines; let i = index"
+               [style.animation-delay]="(i * 0.4) + 's'">
+            <span *ngIf="line.type === 'command'" class="prompt">
+              <span class="prompt-user">samir</span>
+              <span class="prompt-at">&#64;</span>
+              <span class="prompt-host">dev</span>
+              <span class="prompt-symbol">$</span>
+              <span class="cmd-text">{{line.text}}</span>
+            </span>
+            <span *ngIf="line.type === 'output'" class="output" [ngClass]="line.class || ''">
+              {{line.text}}
+            </span>
+          </div>
+          <div class="cursor-line">
+            <span class="prompt-user">samir</span>
+            <span class="prompt-at">&#64;</span>
+            <span class="prompt-host">dev</span>
+            <span class="prompt-symbol">$</span>
+            <span class="cursor-blink">_</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
+  <!-- Tech Stack -->
+  <div class="tech-section">
+    <h3 class="tech-title">
+      <span class="title-bracket">&lt;</span>
+      Tech Stack
+      <span class="title-bracket">/&gt;</span>
+    </h3>
 
+    <div class="tech-grid">
+      <div class="tech-category" *ngFor="let category of techStack">
+        <div class="category-header">
+          <i class="fas" [ngClass]="category.icon"></i>
+          <h4>{{category.name}}</h4>
+        </div>
+        <div class="tech-items">
+          <span class="tech-item" *ngFor="let tech of category.items">
+            {{tech}}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="col-md-12">
-
-</div>
-
-
-<div class="tech-stack">
-  <h1>Tech Stack</h1>
-  <h3 >🖥️ Programming Languages  </h3>
-
-
-    <img src="https://img.shields.io/badge/Java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white" />
-    <img src="https://img.shields.io/badge/Python-%233776AB.svg?style=for-the-badge&logo=python&logoColor=white" />
-    <img src="https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black" />
-    <img src="https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" />
-    <img src="https://img.shields.io/badge/C-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white" />
-    <img src="https://img.shields.io/badge/C++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white" />
-
-
-  <h3 >🚀 Frameworks & Libraries  </h3>
-  <p align="left">
-
-    <img src="https://img.shields.io/badge/Spring%20Boot-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white" />
-    <img src="https://img.shields.io/badge/Angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white" />
-    <img src="https://img.shields.io/badge/Bootstrap-%237952B3.svg?style=for-the-badge&logo=bootstrap&logoColor=white" />
-  </p>
-
- <h3>🛢️ Databases  </h3>
-
-    <img src="https://img.shields.io/badge/MySQL-%234479A1.svg?style=for-the-badge&logo=mysql&logoColor=white" />
-    <img src="https://img.shields.io/badge/PostgreSQL-%234169E1.svg?style=for-the-badge&logo=postgresql&logoColor=white" />
-
-
-  <h3> 🛠️ Tools & Platforms </h3>
-
-    <img src="https://img.shields.io/badge/Git-%23F05032.svg?style=for-the-badge&logo=git&logoColor=white" />
-    <img src="https://img.shields.io/badge/Linux-%23FCC624.svg?style=for-the-badge&logo=linux&logoColor=black" />
-    <img src="https://img.shields.io/badge/Kaggle-%2320BEFF.svg?style=for-the-badge&logo=kaggle&logoColor=white" />
-    <img src="https://img.shields.io/badge/Pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white" />
-    <img src="https://img.shields.io/badge/Seaborn-%233776AB.svg?style=for-the-badge&logo=python&logoColor=white" />
-
-
-
-</div>
-
-<div class="resume">
-  <h1>Resume</h1>
-  <p>Here is a quick view of my resume. You can also download it!</p>
-
-  <a href="Resume.pdf" target="_blank">
-    <i class="fa fa-file-pdf"> View Resume</i>
-
-  </a>
-  <a href="Resume.pdf" target="_blank" download="Samir_K.C._Resume.pdf">
-    <i class="fa fa-download"> Download Resume</i>
-  </a>
-</div>

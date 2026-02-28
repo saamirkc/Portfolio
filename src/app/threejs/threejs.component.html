@@ -1,26 +1,125 @@
-<!--&lt;!&ndash;<canvas id="bgCanvas"></canvas>&ndash;&gt;-->
+<section class="hero-section" id="home">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
 
-<!--&lt;!&ndash;<h1>Samir K.C.</h1>&ndash;&gt;-->
-
-
-<div class="scene-container">
-  <canvas id="threeCanvas"></canvas>
-  <div class="center-text">
-    <h1> 🚀 I'm Samir K.C. </h1>
-    <h2 id="roleText">Java  Developer</h2>
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="tag-line"></span>
+        <span class="tag-text">Backend Engineer</span>
+      </div>
+      <h1 class="hero-greeting">Hi, I'm <span class="hero-name">Samir K.C.</span></h1>
+      <h2 class="hero-role" id="roleText"></h2>
+      <p class="hero-description">
+        I architect <span class="highlight">distributed systems</span> and build
+        <span class="highlight">production-grade APIs</span> that power financial platforms.
+        Specializing in Spring Boot, Kafka, and cloud-native backends.
+      </p>
+      <div class="hero-cta">
+        <a (click)="scrollToSection('projects')" class="cta-primary">
+          <span>View My Work</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a (click)="scrollToSection('contact')" class="cta-secondary">
+          <span>Get In Touch</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">1+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Projects Built</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Technologies</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="canvas-wrapper">
+        <canvas id="threeCanvas"></canvas>
+      </div>
+    </div>
   </div>
-</div>
-<div class="about-container">
+
+  <div class="scroll-indicator" (click)="scrollToSection('about')">
+    <div class="mouse">
+      <div class="wheel"></div>
+    </div>
+    <span>Scroll Down</span>
+  </div>
+</section>
+
+<section id="about">
   <app-about></app-about>
-</div>
-<div class="project">
+</section>
+
+<section id="experience">
+  <div class="experience-section">
+    <div class="section-header">
+      <span class="section-label"><span class="label-num">03.</span> Experience</span>
+      <h2 class="section-title">Where I've Worked</h2>
+      <div class="title-line"></div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let exp of experiences; let i = index"
+           [class.fade-in-up]="true" [class.visible]="exp.visible">
+        <div class="timeline-marker">
+          <div class="marker-dot"></div>
+          <div class="marker-line" *ngIf="i < experiences.length - 1"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-role">{{exp.role}}</h3>
+              <span class="exp-company">
+                <i class="fas fa-building"></i> {{exp.company}}
+              </span>
+            </div>
+            <span class="exp-date">
+              <i class="fas fa-calendar-alt"></i> {{exp.date}}
+            </span>
+          </div>
+          <ul class="exp-points">
+            <li *ngFor="let point of exp.points">
+              <i class="fas fa-caret-right"></i>
+              <span>{{point}}</span>
+            </li>
+          </ul>
+          <div class="exp-tech">
+            <span *ngFor="let tech of exp.tech" class="tech-pill">{{tech}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
   <app-projects></app-projects>
-</div>
+</section>
 
-
-<div class="contact">
+<section id="contact">
   <app-contact></app-contact>
-</div>
+</section>
 
-
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-social">
+      <a href="https://github.com/saamirkc" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/samir-kc" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="mailto:samirkc@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p class="footer-text">Designed & Built by <span>Samir K.C.</span></p>
+    <p class="footer-sub">© 2026 — All rights reserved.</p>
+  </div>
+</footer>
 

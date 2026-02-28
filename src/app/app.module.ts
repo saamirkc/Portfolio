@@ -8,13 +8,12 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { ProjectsComponent } from './projects/projects.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatButton} from '@angular/material/button';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButton } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,6 @@ import {MatButton} from '@angular/material/button';
     ContactComponent,
     AboutComponent,
     ProjectsComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -41,3 +39,4 @@ import {MatButton} from '@angular/material/button';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
