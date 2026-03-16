@@ -1,4 +1,5 @@
 <nav class="navbar" [class.scrolled]="isScrolled" id="mainNav">
+  <div class="scroll-progress-bar" [style.width.%]="scrollProgress"></div>
   <div class="nav-container">
     <a class="nav-logo" (click)="scrollTo('home')">
       <span class="logo-text">SK</span>
@@ -13,7 +14,7 @@
 
     <ul class="nav-links" [class.mobile-open]="mobileMenuOpen">
       <li *ngFor="let item of navItems; let i = index">
-        <a (click)="scrollTo(item.id); mobileMenuOpen = false"
+        <a (click)="scrollTo(item.id)"
            [class.active]="activeSection === item.id">
           <span class="nav-num">0{{i + 1}}.</span> {{item.label}}
         </a>

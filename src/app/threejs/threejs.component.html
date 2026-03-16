@@ -1,66 +1,55 @@
+  <!-- ========== HERO SECTION — Ali-style Parallax + Spaceman ========== -->
 <section class="hero-section" id="home">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-glow hero-glow-1"></div>
-  <div class="hero-glow hero-glow-2"></div>
 
-  <div class="hero-container">
-    <div class="hero-content">
-      <div class="hero-tag">
-        <span class="tag-line"></span>
-        <span class="tag-text">Backend Engineer</span>
-      </div>
-      <h1 class="hero-greeting">Hi, I'm <span class="hero-name">Samir K.C.</span></h1>
-      <h2 class="hero-role" id="roleText"></h2>
-      <p class="hero-description">
-        I architect <span class="highlight">distributed systems</span> and build
-        <span class="highlight">production-grade APIs</span> that power financial platforms.
-        Specializing in Spring Boot, Kafka, and cloud-native backends.
-      </p>
-      <div class="hero-cta">
-        <a (click)="scrollToSection('projects')" class="cta-primary">
-          <span>View My Work</span>
-          <i class="fas fa-arrow-right"></i>
-        </a>
-        <a (click)="scrollToSection('contact')" class="cta-secondary">
-          <span>Get In Touch</span>
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">1+</span>
-          <span class="stat-label">Years Experience</span>
+  <!-- Parallax Background Layers -->
+  <div class="parallax-bg">
+    <!-- Sky -->
+    <div class="parallax-layer sky-layer"></div>
+    <!-- Mountain 3 (farthest) -->
+    <div class="parallax-layer mountain3-layer" [style.transform]="'translateY(' + mountain3Y + ')'"></div>
+    <!-- Planets -->
+    <div class="parallax-layer planets-layer" [style.transform]="'translateX(' + planetsX + ')'"></div>
+    <!-- Mountain 2 -->
+    <div class="parallax-layer mountain2-layer" [style.transform]="'translateY(' + mountain2Y + ')'"></div>
+    <!-- Mountain 1 (closest) -->
+    <div class="parallax-layer mountain1-layer" [style.transform]="'translateY(' + mountain1Y + ')'"></div>
+    <!-- Dark overlay -->
+    <div class="parallax-overlay"></div>
+  </div>
+
+  <!-- Hero Text Content -->
+  <div class="hero-text-content">
+    <div class="hero-text-inner">
+      <h1 class="hero-greeting animate-slide-in" style="animation-delay: 0.8s">Hi, I'm Samir</h1>
+      <div class="hero-subtitle-block">
+        <p class="hero-subtitle animate-slide-in" style="animation-delay: 1s">
+          A Developer <br /> Dedicated to Crafting
+        </p>
+        <div class="flip-word-wrapper animate-slide-in" style="animation-delay: 1.3s">
+          <span class="flip-word" [class.flip-in]="isFlipAnimating" [class.flip-out]="!isFlipAnimating">
+            {{currentFlipWord}}
+          </span>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">10+</span>
-          <span class="stat-label">Projects Built</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">5+</span>
-          <span class="stat-label">Technologies</span>
-        </div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="canvas-wrapper">
-        <canvas id="threeCanvas"></canvas>
+        <p class="hero-subtitle animate-slide-in" style="animation-delay: 1.6s">
+          Backend Systems
+        </p>
       </div>
     </div>
   </div>
 
-  <div class="scroll-indicator" (click)="scrollToSection('about')">
-    <div class="mouse">
-      <div class="wheel"></div>
-    </div>
-    <span>Scroll Down</span>
+  <!-- 3D Spaceman Canvas (fullscreen overlay like Ali's) -->
+  <div class="spaceman-canvas-wrapper">
+    <canvas id="astronautCanvas"></canvas>
   </div>
+
 </section>
 
+<!-- ========== ABOUT ========== -->
 <section id="about">
   <app-about></app-about>
 </section>
 
+<!-- ========== EXPERIENCE ========== -->
 <section id="experience">
   <div class="experience-section">
     <div class="section-header">
@@ -71,7 +60,7 @@
 
     <div class="timeline">
       <div class="timeline-item" *ngFor="let exp of experiences; let i = index"
-           [class.fade-in-up]="true" [class.visible]="exp.visible">
+           [class.visible]="exp.visible">
         <div class="timeline-marker">
           <div class="marker-dot"></div>
           <div class="marker-line" *ngIf="i < experiences.length - 1"></div>
@@ -103,23 +92,31 @@
   </div>
 </section>
 
+<!-- ========== PROJECTS ========== -->
 <section id="projects">
   <app-projects></app-projects>
 </section>
 
+<!-- ========== CONTACT ========== -->
 <section id="contact">
   <app-contact></app-contact>
 </section>
 
+<!-- ========== FOOTER ========== -->
 <footer class="site-footer">
+  <div class="footer-divider"></div>
   <div class="footer-content">
+    <div class="footer-left">
+      <p>Terms & Conditions</p>
+      <p>|</p>
+      <p>Privacy Policy</p>
+    </div>
     <div class="footer-social">
       <a href="https://github.com/saamirkc" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://linkedin.com/in/samir-kc" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       <a href="mailto:samirkc@example.com" title="Email"><i class="fas fa-envelope"></i></a>
     </div>
-    <p class="footer-text">Designed & Built by <span>Samir K.C.</span></p>
-    <p class="footer-sub">© 2026 — All rights reserved.</p>
+    <p class="footer-copy">© 2026 Samir K.C. All rights reserved.</p>
   </div>
 </footer>
 

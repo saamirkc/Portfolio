@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
-export class AboutComponent {
+export class AboutComponent implements AfterViewInit {
   highlights = [
     { icon: 'fa-server', title: 'Backend-First', desc: 'Spring Boot, REST APIs, Microservices' },
     { icon: 'fa-diagram-project', title: 'Distributed Systems', desc: 'Kafka, Event-Driven Architecture' },
@@ -52,5 +52,42 @@ export class AboutComponent {
       items: ['Git', 'Docker', 'Linux', 'AWS', 'Maven', 'Postman']
     }
   ];
+
+  ngAfterViewInit() {
+    this.setupScrollReveal();
+    this.setupTechHover();
+  }
+
+  private setupScrollReveal() {
+    setTimeout(() => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.about-text, .about-visual, .tech-category, .highlight-item').forEach(el => {
+        observer.observe(el);
+      });
+    }, 300);
+  }
+
+  private setupTechHover() {
+    setTimeout(() => {
+      const techCategories = document.querySelectorAll('.tech-category');
+      techCategories.forEach(cat => {
+        const el = cat as HTMLElement;
+        el.addEventListener('mousemove', (e: MouseEvent) => {
+          const rect = el.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          el.style.setProperty('--mouse-x', `${x}px`);
+          el.style.setProperty('--mouse-y', `${y}px`);
+        });
+      });
+    }, 300);
+  }
 }
 

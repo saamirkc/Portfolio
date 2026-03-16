@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles — Premium Portfolio */
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
@@ -39,6 +39,7 @@ body, html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Premium Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -48,12 +49,12 @@ body, html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-primary);
+  background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary));
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-secondary);
+  background: var(--accent-primary);
 }
 
 ::selection {
@@ -102,11 +103,11 @@ body, html {
   caret-color: var(--accent-primary) !important;
 }
 
-/* Fade-in animation utility */
+/* ========== ANIMATION UTILITIES ========== */
 .fade-in-up {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .fade-in-up.visible {
@@ -117,7 +118,7 @@ body, html {
 .fade-in-left {
   opacity: 0;
   transform: translateX(-40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .fade-in-left.visible {
@@ -128,10 +129,29 @@ body, html {
 .fade-in-right {
   opacity: 0;
   transform: translateX(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .fade-in-right.visible {
   opacity: 1;
   transform: translateX(0);
 }
+
+/* Section Transition Effect */
+section {
+  position: relative;
+}
+
+/* Smooth section backgrounds */
+section:nth-child(even)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 50% 50% at 50% 50%,
+    rgba(0, 255, 209, 0.01) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+

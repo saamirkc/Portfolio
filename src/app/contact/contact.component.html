@@ -12,44 +12,25 @@
   <div class="contact-grid">
     <!-- Left: Info Cards -->
     <div class="contact-info">
-      <div class="info-card">
-        <div class="info-icon">
-          <i class="fas fa-envelope"></i>
-        </div>
-        <div>
-          <h4>Email</h4>
-          <a href="mailto:samirkc@example.com">samirkc&#64;example.com</a>
-        </div>
-      </div>
-
-      <div class="info-card">
-        <div class="info-icon">
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <div>
-          <h4>Location</h4>
-          <span>Nepal</span>
-        </div>
-      </div>
-
-      <div class="info-card">
-        <div class="info-icon">
-          <i class="fab fa-github"></i>
-        </div>
-        <div>
-          <h4>GitHub</h4>
-          <a href="https://github.com/saamirkc" target="_blank">github.com/saamirkc</a>
-        </div>
-      </div>
-
-      <div class="info-card">
-        <div class="info-icon">
-          <i class="fab fa-linkedin-in"></i>
-        </div>
-        <div>
-          <h4>LinkedIn</h4>
-          <a href="https://linkedin.com/in/samir-kc" target="_blank">linkedin.com/in/samir-kc</a>
-        </div>
+      <div class="info-card" *ngFor="let i of [0,1,2,3]" [style.animation-delay]="(i * 0.1) + 's'">
+        <ng-container [ngSwitch]="i">
+          <ng-container *ngSwitchCase="0">
+            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+            <div><h4>Email</h4><a href="mailto:samirkc@example.com">samirkc&#64;example.com</a></div>
+          </ng-container>
+          <ng-container *ngSwitchCase="1">
+            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div><h4>Location</h4><span>Nepal</span></div>
+          </ng-container>
+          <ng-container *ngSwitchCase="2">
+            <div class="info-icon"><i class="fab fa-github"></i></div>
+            <div><h4>GitHub</h4><a href="https://github.com/saamirkc" target="_blank">github.com/saamirkc</a></div>
+          </ng-container>
+          <ng-container *ngSwitchCase="3">
+            <div class="info-icon"><i class="fab fa-linkedin-in"></i></div>
+            <div><h4>LinkedIn</h4><a href="https://linkedin.com/in/samir-kc" target="_blank">linkedin.com/in/samir-kc</a></div>
+          </ng-container>
+        </ng-container>
       </div>
 
       <div class="availability-badge">
@@ -60,6 +41,10 @@
 
     <!-- Right: Contact Form -->
     <div class="contact-form-wrapper">
+      <div class="form-header">
+        <i class="fas fa-paper-plane"></i>
+        <span>Send me a message</span>
+      </div>
       <form
         action="https://formspree.io/f/xkgrgrkz"
         method="POST"
@@ -87,9 +72,10 @@
           </mat-form-field>
         </div>
 
-        <button type="submit" class="submit-btn">
-          <span>Send Message</span>
-          <i class="fas fa-paper-plane"></i>
+        <button type="submit" class="submit-btn" [class.submitted]="formSubmitted">
+          <span *ngIf="!formSubmitted">Send Message</span>
+          <span *ngIf="formSubmitted">Message Sent! ✓</span>
+          <i *ngIf="!formSubmitted" class="fas fa-arrow-right"></i>
         </button>
       </form>
     </div>

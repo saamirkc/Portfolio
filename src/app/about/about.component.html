@@ -27,9 +27,12 @@
       </p>
 
       <div class="about-highlights">
-        <div class="highlight-item" *ngFor="let item of highlights">
-          <i class="fas" [ngClass]="item.icon"></i>
-          <div>
+        <div class="highlight-item" *ngFor="let item of highlights; let i = index"
+             [style.animation-delay]="(i * 0.1) + 's'">
+          <div class="highlight-icon">
+            <i class="fas" [ngClass]="item.icon"></i>
+          </div>
+          <div class="highlight-content">
             <strong>{{item.title}}</strong>
             <span>{{item.desc}}</span>
           </div>
@@ -37,8 +40,24 @@
       </div>
     </div>
 
-    <!-- Right: Interactive Terminal -->
+    <!-- Right: Interactive Terminal + Code Visualization -->
     <div class="about-visual">
+      <!-- Floating Code Snippets -->
+      <div class="floating-elements">
+        <div class="float-tag float-1">
+          <i class="fab fa-java"></i>
+          <span>Java 17+</span>
+        </div>
+        <div class="float-tag float-2">
+          <i class="fas fa-leaf"></i>
+          <span>Spring Boot</span>
+        </div>
+        <div class="float-tag float-3">
+          <i class="fas fa-stream"></i>
+          <span>Kafka</span>
+        </div>
+      </div>
+
       <div class="terminal">
         <div class="terminal-header">
           <div class="terminal-dots">
@@ -46,7 +65,11 @@
             <span class="dot yellow"></span>
             <span class="dot green"></span>
           </div>
-          <span class="terminal-title">samir&#64;dev ~ </span>
+          <span class="terminal-title">samir&#64;dev ~ zsh</span>
+          <div class="terminal-actions">
+            <i class="fas fa-minus"></i>
+            <i class="fas fa-expand"></i>
+          </div>
         </div>
         <div class="terminal-body">
           <div class="terminal-line" *ngFor="let line of terminalLines; let i = index"
@@ -71,6 +94,12 @@
           </div>
         </div>
       </div>
+
+      <!-- Status Indicator -->
+      <div class="terminal-status">
+        <div class="status-dot"></div>
+        <span>System Online — All services running</span>
+      </div>
     </div>
   </div>
 
@@ -83,7 +112,9 @@
     </h3>
 
     <div class="tech-grid">
-      <div class="tech-category" *ngFor="let category of techStack">
+      <div class="tech-category" *ngFor="let category of techStack; let i = index"
+           [style.animation-delay]="(i * 0.1) + 's'">
+        <div class="tech-hover-glow"></div>
         <div class="category-header">
           <i class="fas" [ngClass]="category.icon"></i>
           <h4>{{category.name}}</h4>

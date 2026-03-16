@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, NgZone } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +7,10 @@ import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  // Navbar state
   isScrolled = false;
   mobileMenuOpen = false;
   activeSection = 'home';
+  scrollProgress = 0;
 
   navItems = [
     { id: 'home', label: 'Home' },
@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private scrollThreshold = 50;
   private observer!: IntersectionObserver;
+
+  constructor(private ngZone: NgZone) {}
 
   ngOnInit() {
     this.setupIntersectionObserver();
@@ -36,21 +38,28 @@ export class HomeComponent implements OnInit, OnDestroy {
   @HostListener('window:scroll')
   onScroll() {
     this.isScrolled = window.scrollY > this.scrollThreshold;
+
+    // Calculate scroll progress for the progress bar
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    this.scrollProgress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
   }
 
   private setupIntersectionObserver() {
     setTimeout(() => {
       const options: IntersectionObserverInit = {
         root: null,
-        rootMargin: '-20% 0px -60% 0px',
+        rootMargin: '-10% 0px -70% 0px',
         threshold: 0
       };
 
       this.observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            this.activeSection = entry.target.id;
-          }
+        this.ngZone.run(() => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              this.activeSection = entry.target.id;
+            }
+          });
         });
       }, options);
 
@@ -60,7 +69,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.observer.observe(element);
         }
       });
-    }, 500);
+    }, 300);
   }
 
   scrollTo(sectionId: string) {
@@ -73,6 +82,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         behavior: 'smooth'
       });
     }
+    this.mobileMenuOpen = false;
   }
 
   toggleMobileMenu() {

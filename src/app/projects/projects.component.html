@@ -3,35 +3,84 @@
     <span class="section-label"><span class="label-num">04.</span> Projects</span>
     <h2 class="section-title">Things I've Built</h2>
     <div class="title-line"></div>
+    <p class="section-subtitle">
+      Production-grade applications showcasing backend architecture, distributed systems, and full-stack expertise.
+    </p>
   </div>
 
-  <!-- Featured Projects -->
-  <div class="featured-projects">
-    <div class="featured-project" *ngFor="let project of projects; let i = index; let even = even"
-         [class.reverse]="!even">
-      <div class="project-image">
-        <div class="image-overlay"></div>
-        <img [src]="project.image" [alt]="project.title">
-      </div>
-      <div class="project-info" [class.align-right]="even" [class.align-left]="!even">
-        <span class="project-overline">Featured Project</span>
-        <h3 class="project-title">{{project.title}}</h3>
-        <div class="project-desc">
-          <p>{{project.description}}</p>
+  <!-- Project Showcase Grid -->
+  <div class="projects-grid">
+    <div class="project-card"
+         *ngFor="let project of projects; let i = index"
+         [style.--project-color]="project.color"
+         [style.--project-gradient]="project.gradient"
+         [style.animation-delay]="(i * 0.15) + 's'">
+
+      <!-- Glow effect layer -->
+      <div class="card-glow"></div>
+
+      <!-- Card Border Gradient -->
+      <div class="card-border-gradient"></div>
+
+      <!-- Card Content -->
+      <div class="card-inner">
+        <!-- Top: Icon & Links -->
+        <div class="card-top">
+          <div class="project-icon-wrapper">
+            <div class="project-icon" [style.background]="project.gradient">
+              <i class="fas" [ngClass]="project.icon"></i>
+            </div>
+            <div class="icon-ring"></div>
+          </div>
+          <div class="project-external-links">
+            <a [href]="project.github" target="_blank" class="ext-link" title="View Source">
+              <i class="fab fa-github"></i>
+            </a>
+            <a *ngIf="project.live" [href]="project.live" target="_blank" class="ext-link" title="Live Demo">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
         </div>
-        <div class="project-tech">
-          <span *ngFor="let tech of project.technologies">{{tech}}</span>
+
+        <!-- Title -->
+        <h3 class="card-title">{{project.title}}</h3>
+
+        <!-- Description -->
+        <p class="card-description">{{project.description}}</p>
+
+        <!-- Architecture Tags -->
+        <div class="architecture-tags">
+          <span class="arch-tag" *ngFor="let arch of project.architecture">
+            <i class="fas fa-diagram-project"></i>
+            {{arch}}
+          </span>
         </div>
-        <div class="project-links">
-          <a [href]="project.github" target="_blank" class="project-link" title="View Source">
-            <i class="fab fa-github"></i>
-          </a>
-          <a *ngIf="project.live" [href]="project.live" target="_blank" class="project-link" title="Live Demo">
-            <i class="fas fa-external-link-alt"></i>
-          </a>
+
+        <!-- Metrics Bar -->
+        <div class="metrics-bar">
+          <div class="metric" *ngFor="let metric of project.metrics">
+            <span class="metric-value" [style.color]="project.color">{{metric.value}}</span>
+            <span class="metric-label">{{metric.label}}</span>
+          </div>
         </div>
+
+        <!-- Tech Stack -->
+        <div class="card-tech-stack">
+          <span class="tech-chip" *ngFor="let tech of project.technologies">{{tech}}</span>
+        </div>
+
+        <!-- Animated Bottom Line -->
+        <div class="card-bottom-line" [style.background]="project.gradient"></div>
       </div>
     </div>
+  </div>
+
+  <!-- Decorative Elements -->
+  <div class="projects-decoration">
+    <div class="deco-line deco-line-1"></div>
+    <div class="deco-line deco-line-2"></div>
+    <div class="deco-dot deco-dot-1"></div>
+    <div class="deco-dot deco-dot-2"></div>
   </div>
 </section>
 

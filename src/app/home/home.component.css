@@ -19,6 +19,25 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* Scroll Progress Bar */
+.scroll-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), var(--accent-primary));
+  background-size: 200% 100%;
+  animation: progressGradient 3s linear infinite;
+  transition: width 0.1s linear;
+  z-index: 1001;
+  box-shadow: 0 0 10px var(--glow-primary), 0 0 20px var(--glow-primary);
+}
+
+@keyframes progressGradient {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -103,13 +122,20 @@
 .nav-links li a.active::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: 2px;
   left: 50%;
   transform: translateX(-50%);
-  width: 20px;
+  width: 24px;
   height: 2px;
   background: var(--accent-primary);
   border-radius: 1px;
+  box-shadow: 0 0 8px var(--glow-primary);
+  animation: activeGlow 2s ease-in-out infinite;
+}
+
+@keyframes activeGlow {
+  0%, 100% { box-shadow: 0 0 8px var(--glow-primary); width: 24px; }
+  50% { box-shadow: 0 0 16px var(--glow-primary); width: 30px; }
 }
 
 .resume-btn {
