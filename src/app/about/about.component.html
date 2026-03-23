@@ -1,131 +1,104 @@
-<section class="about-section">
+<section class="about-section" id="about">
+
+  <!-- Section Header -->
   <div class="section-header">
-    <span class="section-label"><span class="label-num">02.</span> About Me</span>
-    <h2 class="section-title">Who I Am</h2>
+    <span class="section-label"><span class="label-num">02</span> About</span>
+    <h2 class="section-title">Developer workspace</h2>
     <div class="title-line"></div>
   </div>
 
-  <div class="about-grid">
-    <!-- Left: Description -->
-    <div class="about-text">
-      <p class="about-intro">
-        I'm a <span class="accent">Java Backend Developer</span> passionate about building robust,
-        scalable systems that handle real-world complexity. I thrive on designing
-        <span class="accent">production-grade APIs</span> and architecting
-        <span class="accent">distributed workflows</span> for mission-critical applications.
-      </p>
-      <p>
-        My professional experience spans the fintech and e-commerce domains — from implementing
-        real-time transaction processing with <span class="accent">Apache Kafka</span>, to
-        integrating payment gateways and building microservice-based architectures with
-        <span class="accent">Spring Boot</span>.
-      </p>
-      <p>
-        I believe in clean architecture, test-driven development, and systems that
-        scale gracefully under pressure. When I'm not coding, I'm exploring distributed
-        systems patterns and cloud-native technologies.
-      </p>
+  <!-- 2-Column Layout: Terminal + 3D -->
+  <div class="about-row">
 
-      <div class="about-highlights">
-        <div class="highlight-item" *ngFor="let item of highlights; let i = index"
-             [style.animation-delay]="(i * 0.1) + 's'">
-          <div class="highlight-icon">
-            <i class="fas" [ngClass]="item.icon"></i>
-          </div>
-          <div class="highlight-content">
-            <strong>{{item.title}}</strong>
-            <span>{{item.desc}}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right: Interactive Terminal + Code Visualization -->
-    <div class="about-visual">
-      <!-- Floating Code Snippets -->
-      <div class="floating-elements">
-        <div class="float-tag float-1">
-          <i class="fab fa-java"></i>
-          <span>Java 17+</span>
-        </div>
-        <div class="float-tag float-2">
-          <i class="fas fa-leaf"></i>
-          <span>Spring Boot</span>
-        </div>
-        <div class="float-tag float-3">
-          <i class="fas fa-stream"></i>
-          <span>Kafka</span>
-        </div>
-      </div>
-
+    <!-- LEFT — Terminal -->
+    <div class="about-col-left">
       <div class="terminal">
-        <div class="terminal-header">
-          <div class="terminal-dots">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
+
+        <!-- Title bar -->
+        <div class="term-bar">
+          <div class="term-dots">
+            <span class="dot dot-r"></span>
+            <span class="dot dot-y"></span>
+            <span class="dot dot-g"></span>
           </div>
-          <span class="terminal-title">samir&#64;dev ~ zsh</span>
-          <div class="terminal-actions">
+          <span class="term-title">samir&#64;dev — zsh</span>
+          <div class="term-actions">
             <i class="fas fa-minus"></i>
             <i class="fas fa-expand"></i>
           </div>
         </div>
-        <div class="terminal-body">
-          <div class="terminal-line" *ngFor="let line of terminalLines; let i = index"
-               [style.animation-delay]="(i * 0.4) + 's'">
-            <span *ngIf="line.type === 'command'" class="prompt">
-              <span class="prompt-user">samir</span>
-              <span class="prompt-at">&#64;</span>
-              <span class="prompt-host">dev</span>
-              <span class="prompt-symbol">$</span>
-              <span class="cmd-text">{{line.text}}</span>
+
+        <!-- Terminal body -->
+        <div class="term-body">
+
+          <!-- Login banner -->
+          <div class="term-line term-banner">Last login: {{ currentDate }} on ttys001</div>
+
+          <ng-container *ngFor="let entry of terminalEntries; let i = index">
+
+            <!-- Command -->
+            <div class="term-line" *ngIf="entry.type === 'command'">
+              <span class="ps1">
+                <span class="ps1-user">samir</span><span class="ps1-at">&#64;</span><span class="ps1-host">dev</span>
+                <span class="ps1-sep">:</span><span class="ps1-path">~</span><span class="ps1-dollar">$</span>
+              </span>
+              <span class="cmd" *ngIf="entry.isTyping">{{ entry.typedText }}<span class="inline-cursor">▌</span></span>
+              <span class="cmd" *ngIf="!entry.isTyping">{{ entry.text }}</span>
+            </div>
+
+            <!-- Output -->
+            <div class="term-line" *ngIf="entry.type === 'output'"
+                 [ngClass]="entry.class || ''">{{ entry.text }}</div>
+
+          </ng-container>
+
+          <!-- Idle cursor -->
+          <div class="term-line cursor-idle">
+            <span class="ps1">
+              <span class="ps1-user">samir</span><span class="ps1-at">&#64;</span><span class="ps1-host">dev</span>
+              <span class="ps1-sep">:</span><span class="ps1-path">~</span><span class="ps1-dollar">$</span>
             </span>
-            <span *ngIf="line.type === 'output'" class="output" [ngClass]="line.class || ''">
-              {{line.text}}
-            </span>
-          </div>
-          <div class="cursor-line">
-            <span class="prompt-user">samir</span>
-            <span class="prompt-at">&#64;</span>
-            <span class="prompt-host">dev</span>
-            <span class="prompt-symbol">$</span>
-            <span class="cursor-blink">_</span>
+            <span class="block-cursor">▌</span>
           </div>
         </div>
+
       </div>
 
-      <!-- Status Indicator -->
-      <div class="terminal-status">
-        <div class="status-dot"></div>
-        <span>System Online — All services running</span>
+      <!-- Status bar below terminal -->
+      <div class="term-status">
+        <span class="status-dot"></span>
+        <span>System online — all services running</span>
       </div>
     </div>
+
+    <!-- RIGHT — 3D Programmer Desktop -->
+    <div class="about-col-right">
+      <div class="model-wrapper">
+        <canvas #modelCanvas class="model-canvas"></canvas>
+      </div>
+    </div>
+
   </div>
 
   <!-- Tech Stack -->
   <div class="tech-section">
-    <h3 class="tech-title">
-      <span class="title-bracket">&lt;</span>
-      Tech Stack
-      <span class="title-bracket">/&gt;</span>
+    <h3 class="tech-heading">
+      <span class="bracket">&lt;</span>Tech Stack<span class="bracket"> /&gt;</span>
     </h3>
 
     <div class="tech-grid">
-      <div class="tech-category" *ngFor="let category of techStack; let i = index"
-           [style.animation-delay]="(i * 0.1) + 's'">
-        <div class="tech-hover-glow"></div>
-        <div class="category-header">
-          <i class="fas" [ngClass]="category.icon"></i>
-          <h4>{{category.name}}</h4>
+      <div class="tech-category" *ngFor="let cat of techStack; let i = index"
+           [style.animation-delay]="(i * 0.08) + 's'">
+        <div class="cat-header">
+          <i class="fas" [ngClass]="cat.icon"></i>
+          <h4>{{ cat.name }}</h4>
         </div>
-        <div class="tech-items">
-          <span class="tech-item" *ngFor="let tech of category.items">
-            {{tech}}
-          </span>
+        <div class="cat-items">
+          <span class="tag" *ngFor="let t of cat.items">{{ t }}</span>
         </div>
       </div>
     </div>
   </div>
+
 </section>
 

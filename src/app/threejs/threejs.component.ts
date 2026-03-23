@@ -20,7 +20,7 @@ export class ThreejsComponent implements OnInit, AfterViewInit, OnDestroy {
   mountain1Y = '0%';
 
   // Flip words
-  flipWords = ['Scalable', 'Robust', 'Secure', 'Modern'];
+  flipWords = ['Scalable', 'Resilient', 'Clean', 'Thoughtful'];
   currentFlipWord = '';
   flipWordIndex = 0;
   private flipTimeout: any;
@@ -123,11 +123,11 @@ export class ThreejsComponent implements OnInit, AfterViewInit, OnDestroy {
     dirLight.position.set(5, 5, 5);
     scene.add(dirLight);
 
-    const accentLight = new THREE.PointLight(0x6c63ff, 0.5, 15);
+    const accentLight = new THREE.PointLight(0x8b9cf7, 0.4, 15);
     accentLight.position.set(-3, 2, 3);
     scene.add(accentLight);
 
-    const rimLight = new THREE.DirectionalLight(0x00ffd1, 0.3);
+    const rimLight = new THREE.DirectionalLight(0xc4b5a0, 0.25);
     rimLight.position.set(-5, 0, -5);
     scene.add(rimLight);
 
